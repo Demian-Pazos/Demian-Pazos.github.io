@@ -1,0 +1,323 @@
+/* Estilos base paleta de colores */
+:root {
+    --primary-color: #1B418C;    /* Azul principal */
+    --secondary-color: #F2C029;  /* Amarillo acento */
+    --background-color: #F2F2F2; /* Fondo gris claro */
+    --card-color: #ffffff;       /* Blanco para tarjetas */
+    --text-color: #333333;       /* Texto oscuro */
+    --text-light: #555555;       /* Texto secundario */
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* Header */
+header {
+    background-color: var(--primary-color);
+    padding: 1.5rem 2rem;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    color: white;
+    font-size: 1.8rem;
+}
+
+nav a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--secondary-color);
+    transition: var(--transition);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Secciones  */
+section {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: var(--secondary-color);
+    margin: 0.5rem auto;
+}
+
+/* Sobre mí - Diseño responsivo */
+#about {
+    background-color: var(--card-color);
+    border-radius: 8px;
+    margin: 2rem auto;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--secondary-color);
+    padding: 2rem;
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.profile-photo {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    max-height: 400px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+    }
+    
+    .about-text, .about-image {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .profile-photo {
+        max-width: 250px;
+    }
+}
+
+/* PROYECTOS  */
+
+#projects {
+    margin-bottom: 3rem;
+}
+
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* Mobile First - 1 columna */
+.project-card {
+    background-color: var(--card-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    width: 100%;
+    border-top: 3px solid var(--primary-color);
+}
+
+/* Tablet - 2 columnas */
+@media (min-width: 768px) {
+    .project-card {
+        width: calc(50% - 1rem);
+        flex: 1 1 calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+    }
+    
+    .projects-container {
+        justify-content: flex-start;
+    }
+}
+
+/* Desktop - 3 columnas */
+@media (min-width: 1024px) {
+    .project-card {
+        width: calc(33.333% - 1.333rem);
+        flex: 1 1 calc(33.333% - 1.333rem);
+        max-width: calc(33.333% - 1.333rem);
+    }
+}
+
+/* Efectos hover y estilos de contenido  */
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-card h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.project-card p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.show-more {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.show-more:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.more-info {
+    padding: 1rem;
+    background-color: rgba(27, 65, 140, 0.05);
+    border-radius: 5px;
+    margin-top: 1rem;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    border-left: 3px solid var(--secondary-color);
+}
+
+/* Footer  */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+footer h2 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+footer h2::after {
+    background: var(--secondary-color);
+}
+
+footer a {
+    color: var(--secondary-color);
+    margin: 0 0.5rem;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+    font-weight: 500;
+}
+
+footer a:hover {
+    color: white;
+    transform: translateY(-2px);
+}
+
+footer p {
+    margin: 1rem 0 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/*  Media Queries */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    nav {
+        margin-top: 1rem;
+    }
+    
+    nav a {
+        margin: 0 0.75rem;
+    }
+    
+    section {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    nav a {
+        margin: 0 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    #about p {
+        font-size: 1rem;
+    }
+}
