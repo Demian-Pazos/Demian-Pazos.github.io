@@ -1,0 +1,9 @@
+import "./../box2d.wasm.js";
+import "./c3runtime.js";
+import "./plugins/ppstudio_smartui_plugin/c3runtime/main.js";
+import "./plugins/ppstudio_fsm/c3runtime/main.js";
+import "./behaviors/ppstudiosmartui_button_beh/c3runtime/main.js";
+import "./behaviors/ppstudio_beh_fsm/c3runtime/main.js";
+import "./behaviors/ppstudio_container_beh/c3runtime/main.js";
+import "./behaviors/ppstudio_dialog_beh/c3runtime/main.js";
+import "./objRefTable.js";

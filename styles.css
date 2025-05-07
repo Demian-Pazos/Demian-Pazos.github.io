@@ -506,3 +506,43 @@ footer a:hover {
 .close-modal:hover {
   background-color: var(--secondary-color);
 }
+
+/* Estilos para la sección del juego */
+#game {
+    padding: 2rem;
+    text-align: center;
+}
+
+.game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.game-container iframe {
+    width: 100%;
+    border: none;
+}
+
+.game-description {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 1rem;
+}
+
+/* Estilos responsivos para el juego */
+@media (max-width: 850px) {
+    .game-container iframe {
+        height: 450px;
+    }
+}
+
+@media (max-width: 600px) {
+    .game-container iframe {
+        height: 350px;
+    }
+}
