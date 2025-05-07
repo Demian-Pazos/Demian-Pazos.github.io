@@ -58,7 +58,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.Spawn,
 		C3.Plugins.Sprite.Cnds.OnCollision,
 		C3.Plugins.Touch.Cnds.IsInTouch,
-		C3.Behaviors.Physics.Acts.SetVelocity,
 		C3.Plugins.Touch.Cnds.OnTouchStart,
 		C3.Plugins.Touch.Exps.X,
 		C3.Plugins.Touch.Exps.Y,
