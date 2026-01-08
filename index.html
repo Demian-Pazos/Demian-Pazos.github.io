@@ -3,248 +3,377 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demian Gonzalez | Gameplay Programmer & Project Manager</title>
+    <title>Demian Gonzalez | Dev & Edu</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Inter -->
+    <!-- Google Fonts: Inter & Space Grotesk -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        dev: {
+                            base: '#0f172a', // Slate 900
+                            accent: '#38bdf8', // Sky 400
+                        },
+                        edu: {
+                            base: '#4c1d95', // Violet 900
+                            accent: '#facc15', // Yellow 400
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
-        /* Custom styles using Inter font */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #111827; /* bg-gray-900 */
-            color: #d1d5db; /* text-gray-300 */
+        /* Split Screen Animation */
+        .split-hover {
+            transition: width 0.5s ease-in-out, flex 0.5s ease-in-out;
         }
-        /* Custom gradient for hero section */
-        .hero-gradient {
-            background: radial-gradient(ellipse at top, #1f2937, #111827);
+        
+        /* Custom Horizontal Scrollbar */
+        .horizontal-scroll::-webkit-scrollbar {
+            height: 8px;
         }
-        /* Style for section titles */
-        .section-title {
-            @apply text-3xl font-bold text-white mb-2 text-center;
+        .horizontal-scroll::-webkit-scrollbar-track {
+            background: #1f2937;
+            border-radius: 4px;
         }
-        .section-subtitle {
-            @apply text-lg text-cyan-400 mb-12 text-center;
+        .horizontal-scroll::-webkit-scrollbar-thumb {
+            background: #4b5563;
+            border-radius: 4px;
         }
-        /* Custom card styling */
-        .project-card {
-            @apply bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-cyan-500/20;
+        .horizontal-scroll::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
+
+        /* Hero Text Shadow */
+        .text-glow-dev {
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+        .text-glow-edu {
+            text-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
         }
     </style>
 </head>
-<body class="antialiased">
+<body class="bg-slate-950 text-slate-300 antialiased overflow-x-hidden">
 
-    <!-- Header & Navigation -->
-    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-white">DEMIAN GONZALEZ</a>
-            <div class="hidden md:flex space-x-6 items-center">
-                <a href="#proyectos" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Proyectos</a>
-                <a href="#sobre-mi" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Sobre Mí</a>
-                <a href="#contacto" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Contacto</a>
-                <a href="https://demian-pazos.github.io/CV-Demian-Gonzalez-Pazos.pdf" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">Descargar CV</a>
+    <!-- Navbar Flotante -->
+    <nav class="fixed top-0 w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto bg-slate-900/90 backdrop-blur-md rounded-full border border-slate-700 shadow-2xl px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-display font-bold text-white tracking-tighter">DG<span class="text-dev-accent">.</span></a>
+            
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#split-hero" class="hover:text-white transition-colors">Inicio</a>
+                <a href="#dev-side" class="hover:text-dev-accent transition-colors"><i class="fas fa-code mr-2"></i>Desarrollo</a>
+                <a href="#edu-side" class="hover:text-edu-accent transition-colors"><i class="fas fa-chalkboard-user mr-2"></i>Docencia</a>
+                <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
             </div>
-            <div class="md:hidden">
-                <button id="menu-btn" class="text-white focus:outline-none">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
-        </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden">
-            <a href="#proyectos" class="block py-2 px-4 text-sm hover:bg-gray-700">Proyectos</a>
-            <a href="#sobre-mi" class="block py-2 px-4 text-sm hover:bg-gray-700">Sobre Mí</a>
-            <a href="#contacto" class="block py-2 px-4 text-sm hover:bg-gray-700">Contacto</a>
-            <a href="https://demian-pazos.github.io/CV-Demian-Gonzalez-Pazos.pdf" target="_blank" class="block py-2 px-4 text-sm hover:bg-gray-700">Descargar CV</a>
+
+            <a href="https://demian-pazos.github.io/CV-Demian-Gonzalez-Pazos.pdf" target="_blank" class="bg-white text-slate-900 px-4 py-2 rounded-full text-sm font-bold hover:bg-slate-200 transition-colors">
+                CV
+            </a>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero-gradient min-h-screen flex items-center">
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
-                    Demian Gonzalez
-                </h1>
-                <p class="text-xl md:text-2xl font-semibold text-cyan-400 mb-8">
-                    Gameplay Programmer & Project Manager
+    <!-- SPLIT SCREEN HERO -->
+    <!-- Esta sección cambia la "orientación" visual dividiendo la pantalla verticalmente -->
+    <section id="split-hero" class="relative h-screen w-full flex flex-col md:flex-row pt-20 md:pt-0 overflow-hidden">
+        
+        <!-- Lado Izquierdo: Developer -->
+        <div class="group relative w-full md:w-1/2 h-1/2 md:h-full bg-slate-900 flex items-center justify-center border-b md:border-b-0 md:border-r border-slate-800 transition-all duration-500 hover:w-full md:hover:w-[55%] z-10">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_rgba(56,189,248,0.1),transparent_50%)]"></div>
+            <div class="relative z-10 text-center px-6">
+                <div class="inline-block p-3 rounded-full bg-slate-800 mb-4 text-dev-accent animate-pulse">
+                    <i class="fas fa-terminal text-2xl"></i>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-display font-bold text-white mb-2 text-glow-dev">Gameplay<br>Programmer y Gestor de Proyectos</h2>
+                <p class="text-dev-accent font-mono text-lg mb-6">&lt;C++ / Unreal Engine / ClickUp / Flutter&gt;</p>
+                <p class="max-w-xs mx-auto text-slate-400 text-sm md:text-base mb-8">
+                    Creando sistemas inmersivos y arquitecturas de juego robustas.
                 </p>
-                <p class="max-w-3xl mx-auto text-lg text-gray-300 mb-12">
-                    Apasionado por crear sistemas de juego inmersivos y liderar equipos para entregar proyectos innovadores y de alta calidad, a tiempo.
-                </p>
-                <a href="#proyectos" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-transform duration-300 inline-block transform hover:scale-105">
-                    Ver mis Proyectos
+                <a href="#dev-side" class="border border-dev-accent text-dev-accent hover:bg-dev-accent hover:text-slate-900 px-6 py-2 rounded transition-all">
+                    Conoce mis proyectos
                 </a>
             </div>
-        </section>
+        </div>
 
-        <!-- Projects Section -->
-        <section id="proyectos" class="py-20 bg-gray-900">
-            <div class="container mx-auto px-6">
-                <h2 class="section-title">Proyectos Destacados</h2>
-                <p class="section-subtitle">Una selección de mi trabajo en programación y gestión.</p>
+        <!-- Lado Derecho: Profesor (Gamespiration) -->
+        <div class="group relative w-full md:w-1/2 h-1/2 md:h-full bg-indigo-950 flex items-center justify-center transition-all duration-500 hover:w-full md:hover:w-[55%] z-10">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,_rgba(250,204,21,0.1),transparent_50%)]"></div>
+            <!-- Pattern overlay -->
+            <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'3\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'3\'/%3E%3C/g%3E%3C/svg%3E');"></div>
+            
+            <div class="relative z-10 text-center px-6">
+                <div class="inline-block p-3 rounded-full bg-indigo-900 mb-4 text-edu-accent animate-bounce">
+                    <i class="fas fa-lightbulb text-2xl"></i>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-display font-bold text-white mb-2 text-glow-edu">Profesor<br>de Videojuegos</h2>
+                <p class="text-edu-accent font-mono text-lg mb-6">GamesDesign & Construct 3</p>
+                <p class="max-w-xs mx-auto text-indigo-200 text-sm md:text-base mb-8">
+                    Aprender de las personas que te rodean es fundamental para llegar a una gran idea.
+                </p>
+                <a href="#edu-side" class="border border-edu-accent text-edu-accent hover:bg-edu-accent hover:text-indigo-900 px-6 py-2 rounded transition-all">
+                    Ver Cursos
+                </a>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- SECTION 1: TECH EXPERTISE (Vertical Scroll Standard) -->
+    <section id="dev-side" class="py-24 bg-slate-950 relative">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center mb-12">
+                <div class="h-px flex-1 bg-slate-800"></div>
+                <h3 class="px-4 text-2xl font-display font-bold text-dev-accent">Proyectos de Desarrollo</h3>
+                <div class="h-px flex-1 bg-slate-800"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1: CON VIDEO (Ejemplo) -->
+                <div class="group bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-dev-accent/50 transition-all hover:shadow-[0_0_30px_rgba(56,189,248,0.1)]">
+                    <!-- Contenedor de Video: Aspect Ratio 16:9 -->
+                    <div class="relative w-full aspect-video bg-black">
+                        <div class="absolute top-2 right-2 bg-black/70 backdrop-blur text-xs font-bold px-2 py-1 rounded text-white z-20 pointer-events-none">Construct 3</div>
+                        
+                        <!-- OPCIÓN A: Iframe de YouTube (Recomendado para Portafolios Web) -->
+                        <!-- Reemplaza el 'src' con tu enlace 'embed' de YouTube -->
+                        <iframe 
+                            class="w-full h-full object-cover"
+                            src="https://www.youtube.com/embed/EngW7tLk6R8" 
+                            title="Gameplay Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
 
-                    <!-- Project 1: Game Jam -->
-                    <div class="project-card">
-                        <img src="https://placehold.co/600x400/1f2937/7dd3fc?text=GameJam+Finalist" alt="Gameplay del juego de GameJam" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Finalista LATAM - GameJamPlus 2025</h3>
-                            <p class="text-sm text-cyan-400 font-semibold mb-4">Líder de Proyecto & Gameplay Programmer</p>
-                            <p class="text-gray-400 mb-4 text-sm">
-                                Lideré un equipo en el desarrollo de un prototipo completo en un tiempo récord, resultando en ser finalistas continentales. Programé las mecánicas de jugador principales en C#.
-                            </p>
-                            <div class="border-t border-gray-700 pt-4">
-                                <p class="text-xs text-gray-400 mb-2 font-bold">ESTUDIO DE CASO: PROBLEMA/SOLUCIÓN</p>
-                                <p class="text-xs text-gray-300">
-                                    <strong class="text-white">Problema:</strong> En los test era muy complicado para el usuario saber a donde ir <br>
-                                    <strong class="text-white">Solución:</strong> Dentro del universo del juego implementamos la fauna del mundo para ayudar al jugador a guiarse creando un sistema de aves guia 
-                                    como un pathfinder para el jugador.
-                                </p>
-                            </div>
-                            <div class="mt-6 flex justify-end space-x-4">
-                                <a href="https://github.com/Demian-Pazos" target="_blank" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 text-2xl"><i class="fab fa-github"></i></a>
-                                <!-- Add a link to gameplay video if available -->
-                                <!-- <a href="#" target="_blank" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 text-2xl"><i class="fab fa-youtube"></i></a> -->
-                            </div>
+                        <!-- OPCIÓN B: Video Local (Si tienes el archivo .mp4) -->
+                        <!-- 
+                        <video class="w-full h-full object-cover" controls poster="ruta/a/miniatura.jpg">
+                            <source src="ruta/a/tu-video.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video> 
+                        -->
+                    </div>
+
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold text-white">AxiFight Game</h4>
+                            <i class="fas fa-video text-dev-accent animate-pulse" title="Video Demo Disponible"></i>
                         </div>
-                    </div>
-
-                    <!-- Project 2: Emotion Recognition -->
-                    <div class="project-card">
-                        <img src="https://placehold.co/600x400/1f2937/7dd3fc?text=AI+Research" alt="Axi adventure" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2"></h3>
-                            <p class="text-sm text-cyan-400 font-semibold mb-4">Investigador Principal (UASLP)</p>
-                            <p class="text-gray-400 mb-4 text-sm">
-                                Dirijo un proyecto de investigación para explorar cómo el reconocimiento de emociones puede crear experiencias de juego dinámicas y adaptativas en tiempo real.
-                            </p>
-                             <div class="border-t border-gray-700 pt-4">
-                                <p class="text-xs text-gray-400 mb-2 font-bold">ESTUDIO DE CASO: DESAFÍO TÉCNICO</p>
-                                <p class="text-xs text-gray-300">
-                                    <strong class="text-white">Desafío:</strong> Procesar datos de visión por computadora en tiempo real sin impactar el rendimiento del juego. <br>
-                                    <strong class="text-white">Enfoque:</strong> Investigando arquitecturas de software para desacoplar el motor de IA del bucle principal del juego usando programación asíncrona.
-                                </p>
-                            </div>
-                            <div class="mt-6 flex justify-end space-x-4">
-                                <!-- Add a link to a research paper or summary if available -->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 3: Project Manager -->
-                    <div class="project-card">
-                        <img src="https://placehold.co/600x400/1f2937/7dd3fc?text=Mobile+App+PM" alt="Gestión de Proyecto de App Móvil" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Project Manager - App Móvil</h3>
-                            <p class="text-sm text-cyan-400 font-semibold mb-4">Project Manager (UASLP)</p>
-                            <p class="text-gray-400 mb-4 text-sm">
-                                A cargo de la gestión de un equipo de desarrollo, implementando SCRUM y JIRA para asegurar la entrega puntual y la comunicación efectiva entre el cliente y el equipo.
-                            </p>
-                             <div class="border-t border-gray-700 pt-4">
-                                <p class="text-xs text-gray-400 mb-2 font-bold">ESTUDIO DE CASO: GESTIÓN DE PROCESOS</p>
-                                <p class="text-xs text-gray-300">
-                                    <strong class="text-white">Problema:</strong> Requisitos del cliente ambiguos que causaban re-trabajo. <br>
-                                    <strong class="text-white">Solución:</strong> Implementé un proceso de refinamiento de backlog y prototipado rápido para validar los requisitos antes de cada sprint, reduciendo el retrabajo en un 40%.
-                                </p>
-                            </div>
-                            <div class="mt-6 flex justify-end space-x-4">
-                                <!-- Add a link to a project plan or similar artifact if available -->
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- About Me Section -->
-        <section id="sobre-mi" class="py-20 bg-gray-800">
-            <div class="container mx-auto px-6">
-                 <h2 class="section-title">Sobre Mí</h2>
-                <p class="section-subtitle">Combinando código y liderazgo para construir el futuro de los videojuegos.</p>
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-1/3 text-center">
-                        <img src="https://placehold.co/400x400/111827/7dd3fc?text=DG" alt="Foto de Demian Gonzalez" class="rounded-full w-64 h-64 mx-auto shadow-lg border-4 border-cyan-500">
-                    </div>
-                    <div class="md:w-2/3">
-                        <p class="text-lg text-gray-300 mb-6">
-                            Soy un estudiante de Ingeniería en Ciencias de la Computación en la UASLP con una doble pasión: la **programación de gameplay** y la **gestión de proyectos**. Me especializo en C++ y Unreal Engine, y me encanta diseñar e implementar sistemas que se sientan geniales para el jugador.
-                        </p>
-                        <p class="text-lg text-gray-300 mb-6">
-                            Mi experiencia liderando equipos en entornos de alta presión como Game Jams me ha enseñado el valor de las metodologías ágiles y una comunicación clara para transformar una visión creativa en un producto pulido y exitoso.
-                        </p>
-                        <h4 class="text-xl font-bold text-white mt-8 mb-4">Habilidades Clave</h4>
-                        <div class="flex flex-wrap gap-4">
-                            <span class="bg-gray-700 text-cyan-300 text-sm font-semibold px-3 py-1 rounded-full">C++</span>
-                            <span class="bg-gray-700 text-cyan-300 text-sm font-semibold px-3 py-1 rounded-full">Unreal Engine</span>
-                            <span class="bg-gray-700 text-cyan-300 text-sm font-semibold px-3 py-1 rounded-full">Git</span>
-                            <span class="bg-gray-700 text-cyan-300 text-sm font-semibold px-3 py-1 rounded-full">SCRUM</span>
-                            <span class="bg-gray-700 text-cyan-300 text-sm font-semibold px-3 py-1 rounded-full">Jira</span>
-                            <span class="bg-gray-700 text-cyan-300 text-sm font-semibold px-3 py-1 rounded-full">Liderazgo Técnico</span>
-                            <span class="bg-gray-700 text-cyan-300 text-sm font-semibold px-3 py-1 rounded-full">Resolución de Problemas</span>
-                             <span class="bg-gray-700 text-cyan-300 text-sm font-semibold px-3 py-1 rounded-full">Python</span>
+                        <p class="text-sm text-slate-400 mb-4">Juego de peleas hecho totalmente en Construct 3. Implementación de físicas y colisiones personalizadas.</p>
+                        <div class="bg-slate-950 p-3 rounded border border-slate-800 mb-4">
+                            <p class="text-xs text-dev-accent font-mono"><span class="text-slate-500">></span> Solución Técnica:</p>
+                            <p class="text-xs text-slate-300 mt-1">Sistema de peleas y oleadas por rondas con máquinas de estado para la IA enemiga.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Contact Section -->
-        <section id="contacto" class="py-20 bg-gray-900">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="section-title">Hablemos</h2>
-                <p class="section-subtitle">Estoy abierto a nuevas oportunidades y colaboraciones.</p>
-                <p class="text-lg mb-8">
-                    Si tienes un proyecto en mente o crees que mi perfil encaja en tu equipo, no dudes en contactarme.
-                </p>
-                <a href="mailto:Demian2231@outlook.com" class="text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors duration-300 inline-block">
-                    Demian2231@outlook.com
-                </a>
-                <div class="flex justify-center space-x-6 mt-8">
-                    <a href="https://github.com/Demian-Pazos" target="_blank" class="text-gray-400 hover:text-white text-3xl transition-colors duration-300">
-                        <i class="fab fa-github"></i>
+                <!-- Project Card 2: CON IMAGEN (Clásica) -->
+                <div class="group bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-dev-accent/50 transition-all hover:shadow-[0_0_30px_rgba(56,189,248,0.1)]">
+                    <div class="relative w-full aspect-video overflow-hidden">
+                        <div class="absolute top-2 right-2 bg-black/70 backdrop-blur text-xs font-bold px-2 py-1 rounded text-white z-10">ClickUp / Flutter</div>
+                        <!-- Imagen con efecto zoom al hacer hover -->
+                        <img src="https://placehold.co/600x400/1e293b/38bdf8?text=Project+Management+Dashboard" alt="Gestión de Proyectos" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold text-white">Gestión de Proyectos</h4>
+                            <i class="fas fa-image text-slate-600" title="Galería de Imágenes"></i>
+                        </div>
+                        <p class="text-sm text-slate-400 mb-4">Director de proyectos en Gamespiration: Desarrollo de plataforma web interconectada y Mall Virtual.</p>
+                        <div class="bg-slate-950 p-3 rounded border border-slate-800 mb-4">
+                            <p class="text-xs text-dev-accent font-mono"><span class="text-slate-500">></span> Solución Técnica:</p>
+                            <p class="text-xs text-slate-300 mt-1">Coordinación de equipos multidisciplinarios (10+ personas) usando metodologías ágiles y CI/CD.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: EDUCATION (Horizontal Orientation Layout) -->
+    <!-- Aquí cambiamos la "orientación" de la experiencia de usuario a un flujo horizontal -->
+    <section id="edu-side" class="py-24 bg-indigo-950 border-t border-indigo-900 relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-edu-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+
+        <div class="container mx-auto px-6 mb-10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <h3 class="text-3xl md:text-5xl font-display font-bold text-white">Gamespiration</h3>
+                    <p class="text-edu-accent text-lg mt-2 font-medium">Formando a los futuros desarrolladores</p>
+                </div>
+                <div class="max-w-md text-indigo-200 text-sm">
+                    <p>Mi propuesta educativa no es solo enseñar a usar software, es desarrollar <strong>pensamiento lógico</strong> y <strong>resolución de problemas</strong> a través de la creación.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Horizontal Scroll Container -->
+        <div class="w-full overflow-x-auto horizontal-scroll pb-12 px-6">
+            <div class="flex space-x-6 w-max mx-auto md:mx-0 md:pl-[max(1.5rem,calc((100vw-1280px)/2))]">
+                
+                <!-- Methodology Card -->
+                <div class="w-80 md:w-96 bg-indigo-900/50 backdrop-blur rounded-2xl p-8 border border-indigo-700 flex flex-col justify-center shrink-0">
+                    <i class="fas fa-shapes text-4xl text-edu-accent mb-6"></i>
+                    <h4 class="text-2xl font-bold text-white mb-4">Metodología Construct 3</h4>
+                    <p class="text-indigo-200 mb-4">
+                        Eliminamos la barrera de sintaxis inicial usando lógica visual de bloques (Eventos y Acciones).
+                    </p>
+                    <ul class="space-y-2 text-sm text-indigo-300">
+                        <li class="flex items-center"><i class="fas fa-check text-edu-accent mr-2"></i> Sin instalaciones complejas</li>
+                        <li class="flex items-center"><i class="fas fa-check text-edu-accent mr-2"></i> Resultados profesionales</li>
+                        <li class="flex items-center"><i class="fas fa-check text-edu-accent mr-2"></i> Lógica transferible a código</li>
+                    </ul>
+                </div>
+
+                <!-- Level 1 Card -->
+                <div class="w-80 md:w-96 bg-white rounded-2xl p-1 overflow-hidden shrink-0 shadow-xl transform transition hover:-translate-y-2">
+                    <div class="bg-indigo-600 h-full rounded-xl p-6 flex flex-col relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-10"><i class="fas fa-gamepad text-8xl text-white"></i></div>
+                        <span class="bg-indigo-800 text-white text-xs font-bold px-2 py-1 rounded w-fit mb-4">PRIMARIA</span>
+                        <h4 class="text-2xl font-bold text-white mb-2">Mi Primer Mundo</h4>
+                        <p class="text-indigo-200 text-sm mb-6 flex-grow">
+                            Introducción lúdica donde los niños crean un personaje que salta y recolecta objetos.
+                        </p>
+                        <div class="bg-indigo-800/50 rounded-lg p-3">
+                            <h5 class="text-edu-accent text-xs font-bold uppercase mb-2">Habilidades</h5>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs text-white bg-indigo-500/50 px-2 py-1 rounded">Creatividad</span>
+                                <span class="text-xs text-white bg-indigo-500/50 px-2 py-1 rounded">Causa-Efecto</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 2 Card -->
+                <div class="w-80 md:w-96 bg-white rounded-2xl p-1 overflow-hidden shrink-0 shadow-xl transform transition hover:-translate-y-2">
+                    <div class="bg-violet-600 h-full rounded-xl p-6 flex flex-col relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-10"><i class="fas fa-rocket text-8xl text-white"></i></div>
+                        <span class="bg-violet-800 text-white text-xs font-bold px-2 py-1 rounded w-fit mb-4">SECUNDARIA</span>
+                        <h4 class="text-2xl font-bold text-white mb-2">Aventura Digital</h4>
+                        <p class="text-violet-100 text-sm mb-6 flex-grow">
+                            Diseño de mecánicas, enemigos con patrullaje simple y condiciones de victoria/derrota.
+                        </p>
+                        <div class="bg-violet-800/50 rounded-lg p-3">
+                            <h5 class="text-edu-accent text-xs font-bold uppercase mb-2">Habilidades</h5>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs text-white bg-violet-500/50 px-2 py-1 rounded">Lógica de Eventos</span>
+                                <span class="text-xs text-white bg-violet-500/50 px-2 py-1 rounded">Variables</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 3 Card -->
+                <div class="w-80 md:w-96 bg-white rounded-2xl p-1 overflow-hidden shrink-0 shadow-xl transform transition hover:-translate-y-2">
+                    <div class="bg-fuchsia-700 h-full rounded-xl p-6 flex flex-col relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-10"><i class="fas fa-code-branch text-8xl text-white"></i></div>
+                        <span class="bg-fuchsia-900 text-white text-xs font-bold px-2 py-1 rounded w-fit mb-4">PREPARATORIA</span>
+                        <h4 class="text-2xl font-bold text-white mb-2">Intro al Desarrollo</h4>
+                        <p class="text-fuchsia-100 text-sm mb-6 flex-grow">
+                            Ciclo completo: GDD (Game Design Document), sistemas de vidas, UI y depuración (Debugging).
+                        </p>
+                        <div class="bg-fuchsia-900/50 rounded-lg p-3">
+                            <h5 class="text-edu-accent text-xs font-bold uppercase mb-2">Habilidades</h5>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs text-white bg-fuchsia-500/50 px-2 py-1 rounded">Planificación</span>
+                                <span class="text-xs text-white bg-fuchsia-500/50 px-2 py-1 rounded">Debugging</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action Card -->
+                <div class="w-80 md:w-96 bg-slate-900 rounded-2xl p-8 border-2 border-dashed border-slate-700 flex flex-col items-center justify-center text-center shrink-0 hover:border-edu-accent transition-colors">
+                    <i class="fas fa-calendar-check text-4xl text-slate-500 mb-4"></i>
+                    <h4 class="text-xl font-bold text-white mb-2">¿Interesado en un curso?</h4>
+                    <p class="text-slate-400 text-sm mb-6">Disponible para modalidad presencial o remota en vivo.</p>
+                    <a href="mailto:Demian2231@outlook.com" class="bg-edu-accent text-indigo-900 font-bold py-2 px-6 rounded-full hover:bg-yellow-300 transition-colors">
+                        Agendar Reunión
                     </a>
-                    <!-- Add LinkedIn profile link when available -->
-                    <!-- <a href="#" target="_blank" class="text-gray-400 hover:text-white text-3xl transition-colors duration-300">
-                        <i class="fab fa-linkedin"></i>
-                    </a> -->
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- UNIFIED PROFILE -->
+    <section class="py-20 bg-slate-900 border-t border-slate-800">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-3xl font-display font-bold text-white mb-8">La Sinergia</h2>
+            <p class="text-xl text-slate-300 leading-relaxed">
+                "No soy solo un programador que enseña, ni un profesor que sabe programar. <br>
+                Soy un <span class="text-dev-accent">Ingeniero</span> que entiende la arquitectura del software y un <span class="text-edu-accent">Comunicador</span> capaz de traducir esa complejidad a cualquier audiencia."
+            </p>
+            
+            <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="p-4 rounded bg-slate-800 border-b-2 border-dev-accent">
+                    <div class="text-2xl font-bold text-white">4+</div>
+                    <div class="text-xs text-slate-400 uppercase tracking-widest mt-1">Años Codeando y enseñando</div>
+                </div>
+                <div class="p-4 rounded bg-slate-800 border-b-2 border-edu-accent">
+                    <div class="text-2xl font-bold text-white">Game Jams</div>
+                    <div class="text-xs text-slate-400 uppercase tracking-widest mt-1">Liderados</div>
+                </div>
+                <div class="p-4 rounded bg-slate-800 border-b-2 border-dev-accent">
+                    <div class="text-2xl font-bold text-white">C++</div>
+                    <div class="text-xs text-slate-400 uppercase tracking-widest mt-1">Expertise</div>
+                </div>
+                <div class="p-4 rounded bg-slate-800 border-b-2 border-edu-accent">
+                    <div class="text-2xl font-bold text-white">Construct 3</div>
+                    <div class="text-xs text-slate-400 uppercase tracking-widest mt-1">Maestro</div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 py-6">
-        <div class="container mx-auto px-6 text-center text-gray-500">
-            <p>&copy; 2024 Demian Gonzalez. Diseñado y construido con pasión.</p>
+    <!-- FOOTER -->
+    <footer id="contacto" class="bg-slate-950 py-12 border-t border-slate-900">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-2xl font-display font-bold text-white mb-6">¿Listo para colaborar?</h2>
+            
+            <div class="flex justify-center space-x-8 mb-8">
+                <a href="mailto:Demian2231@outlook.com" class="flex items-center text-slate-400 hover:text-white transition-colors">
+                    <i class="fas fa-envelope mr-2"></i> Demian2231@outlook.com
+                </a>
+                <a href="tel:+524442812819" class="flex items-center text-slate-400 hover:text-white transition-colors">
+                    <i class="fas fa-phone mr-2"></i> +52 444 281 2819
+                </a>
+            </div>
+
+            <div class="flex justify-center space-x-6">
+                <a href="https://github.com/Demian-Pazos" target="_blank" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-dev-accent hover:text-slate-900 transition-all">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-edu-accent hover:text-indigo-900 transition-all">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+            
+            <p class="mt-12 text-slate-600 text-sm">
+                &copy; 2024 Demian Gonzalez. Desarrollador & Educador.
+            </p>
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when a link is clicked
-        const mobileLinks = document.querySelectorAll('#mobile-menu a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-    </script>
 </body>
 </html>
