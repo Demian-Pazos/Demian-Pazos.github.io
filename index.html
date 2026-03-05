@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demian Gonzalez | Dev & Edu</title>
+    <title>Demian Gonzalez | Dev, Design & Edu</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Inter & Space Grotesk -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <script>
@@ -32,6 +29,10 @@
                         edu: {
                             base: '#4c1d95', // Violet 900
                             accent: '#facc15', // Yellow 400
+                        },
+                        design: {
+                            base: '#064e3b', // Emerald 900
+                            accent: '#34d399', // Emerald 400
                         }
                     }
                 }
@@ -72,28 +73,24 @@
 </head>
 <body class="bg-slate-950 text-slate-300 antialiased overflow-x-hidden">
 
-    <!-- Navbar Flotante -->
     <nav class="fixed top-0 w-full z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto bg-slate-900/90 backdrop-blur-md rounded-full border border-slate-700 shadow-2xl px-6 py-3 flex justify-between items-center">
             
-            <!-- Branding Container -->
             <div class="flex items-center gap-4">
                 <a href="#" class="text-xl font-display font-bold text-white tracking-tighter">DG<span class="text-dev-accent">.</span></a>
                 
-                <!-- Divider -->
                 <div class="h-6 w-px bg-slate-700 hidden sm:block"></div>
 
                
-                  <!-- Gamespiration Banner IMAGE -->
-                <div class="hidden sm:block">
-                     <!-- AQUÍ VA TU BANNER: Reemplaza el src con tu imagen -->
-                    <img src="banner.jpg" alt="Gamespiration Banner" class="h-10 w-auto object-contain rounded-md border border-indigo-500/30 shadow-sm hover:shadow-indigo-500/50 transition-shadow">
+                  <div class="hidden sm:block">
+                     <img src="banner.jpg" alt="Gamespiration Banner" class="h-10 w-auto object-contain rounded-md border border-indigo-500/30 shadow-sm hover:shadow-indigo-500/50 transition-shadow">
                 </div>
             </div>
             
             <div class="hidden md:flex space-x-8 text-sm font-medium">
                 <a href="#split-hero" class="hover:text-white transition-colors">Inicio</a>
                 <a href="#dev-side" class="hover:text-dev-accent transition-colors"><i class="fas fa-code mr-2"></i>Desarrollo</a>
+                <a href="#design-side" class="hover:text-design-accent transition-colors"><i class="fas fa-pen-nib mr-2"></i>UI/UX</a>
                 <a href="#edu-side" class="hover:text-edu-accent transition-colors"><i class="fas fa-chalkboard-user mr-2"></i>Docencia</a>
                 <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
             </div>
@@ -104,11 +101,8 @@
         </div>
     </nav>
 
-    <!-- SPLIT SCREEN HERO -->
-    <!-- Esta sección cambia la "orientación" visual dividiendo la pantalla verticalmente -->
     <section id="split-hero" class="relative h-screen w-full flex flex-col md:flex-row pt-20 md:pt-0 overflow-hidden">
         
-        <!-- Lado Izquierdo: Developer -->
         <div class="group relative w-full md:w-1/2 h-1/2 md:h-full bg-slate-900 flex items-center justify-center border-b md:border-b-0 md:border-r border-slate-800 transition-all duration-500 hover:w-full md:hover:w-[55%] z-10">
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_rgba(56,189,248,0.1),transparent_50%)]"></div>
             <div class="relative z-10 text-center px-6">
@@ -126,16 +120,13 @@
             </div>
         </div>
 
-        <!-- Lado Derecho: Profesor (Gamespiration) -->
         <div class="group relative w-full md:w-1/2 h-1/2 md:h-full bg-indigo-950 flex items-center justify-center transition-all duration-500 hover:w-full md:hover:w-[55%] z-10">
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,_rgba(250,204,21,0.1),transparent_50%)]"></div>
-            <!-- Pattern overlay -->
             <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'3\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'3\'/%3E%3C/g%3E%3C/svg%3E');"></div>
             
             <div class="relative z-10 text-center px-6">
                  <div class="inline-block mb-6">
-                     <!-- BANNER HERO: Reemplaza src con tu imagen -->
-                    <img src="banner.jpg" alt="Gamespiration Logo" class="h-24 w-auto object-contain drop-shadow-[0_0_15px_rgba(250,204,21,0.3)]">
+                     <img src="banner.jpg" alt="Gamespiration Logo" class="h-24 w-auto object-contain drop-shadow-[0_0_15px_rgba(250,204,21,0.3)]">
                 </div>
                 
                 <h2 class="text-2xl md:text-4xl font-display font-bold text-indigo-200 mb-2 text-glow-edu">Profesor de Videojuegos</h2>
@@ -151,7 +142,6 @@
         
     </section>
 
-    <!-- SECTION 1: TECH EXPERTISE (Vertical Scroll Standard) -->
     <section id="dev-side" class="py-24 bg-slate-950 relative">
         <div class="container mx-auto px-6">
             <div class="flex items-center mb-12">
@@ -162,14 +152,10 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 
-                <!-- Project Card 1: CON VIDEO (Ejemplo) -->
                 <div class="group bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-dev-accent/50 transition-all hover:shadow-[0_0_30px_rgba(56,189,248,0.1)]">
-                    <!-- Contenedor de Video: Aspect Ratio 16:9 -->
                     <div class="relative w-full aspect-video bg-black">
                         <div class="absolute top-2 right-2 bg-black/70 backdrop-blur text-xs font-bold px-2 py-1 rounded text-white z-20 pointer-events-none">Construct 3</div>
-                        
-                        <!-- OPCIÓN A: Iframe de YouTube (Recomendado para Portafolios Web) -->
-                       <iframe width="700" height="400" src="https://www.youtube.com/embed/79tWRKQHN5A?si=A89uLgmxKSm0ZOEQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                       <iframe width="100%" height="100%" src="https://www.youtube.com/embed/79tWRKQHN5A?si=A89uLgmxKSm0ZOEQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
 
                     <div class="p-6">
@@ -185,11 +171,9 @@
                     </div>
                 </div>
 
-                <!-- Project Card 2: CON IMAGEN (Clásica) -->
                 <div class="group bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-dev-accent/50 transition-all hover:shadow-[0_0_30px_rgba(56,189,248,0.1)]">
                     <div class="relative w-full aspect-video overflow-hidden">
                         <div class="absolute top-2 right-2 bg-black/70 backdrop-blur text-xs font-bold px-2 py-1 rounded text-white z-10">ClickUp / Flutter</div>
-                        <!-- Imagen con efecto zoom al hacer hover -->
                         <img src="Gestion.jpeg" alt="Gestión de Proyectos" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-6">
@@ -209,9 +193,62 @@
         </div>
     </section>
 
-    <!-- SECTION 2: EDUCATION (Horizontal Orientation Layout) -->
+    <section id="design-side" class="py-24 bg-slate-900 relative">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center mb-12">
+                <div class="h-px flex-1 bg-slate-800"></div>
+                <h3 class="px-4 text-2xl font-display font-bold text-design-accent">Diseño UI / UX</h3>
+                <div class="h-px flex-1 bg-slate-800"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="group bg-slate-950 rounded-xl overflow-hidden border border-slate-800 hover:border-design-accent/50 transition-all hover:shadow-[0_0_30px_rgba(52,211,153,0.15)] flex flex-col">
+                    <div class="relative w-full aspect-[4/3] bg-slate-800 overflow-hidden">
+                        <div class="absolute top-2 right-2 bg-black/70 backdrop-blur text-xs font-bold px-2 py-1 rounded text-white z-10">Figma / App</div>
+                        <img src="fresh.jpg" alt="UI App Móvil" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h4 class="text-xl font-bold text-white mb-2">Freshcar App</h4>
+                        <p class="text-sm text-slate-400 mb-6 flex-grow">Diseño de interfaz y experiencia de usuario para aplicación móvil. Enfoque en navegación intuitiva y flujos de usuario eficientes.</p>
+                        <a href="https://www.figma.com/proto/S758vUlHgcxvwWk8tutO9W/Freshcar?node-id=0-1&t=bxphniWDs4Kc0baM-1" class="text-design-accent text-sm font-bold hover:underline inline-flex items-center">
+                            Ver Prototipo Interactivo <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group bg-slate-950 rounded-xl overflow-hidden border border-slate-800 hover:border-design-accent/50 transition-all hover:shadow-[0_0_30px_rgba(52,211,153,0.15)] flex flex-col">
+                    <div class="relative w-full aspect-[4/3] bg-slate-800 overflow-hidden">
+                        <div class="absolute top-2 right-2 bg-black/70 backdrop-blur text-xs font-bold px-2 py-1 rounded text-white z-10">Web Design</div>
+                        <img src="web.jpg" alt="Diseño Web" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h4 class="text-xl font-bold text-white mb-2">Portafolios Web</h4>
+                        <p class="text-sm text-slate-400 mb-6 flex-grow">Creación y adaptación de plantillas y layouts para clientes. Diseño responsivo centrado en destacar la identidad profesional visualmente.</p>
+                        <a href="https://drive.google.com/drive/folders/1ZAppQbgWWV7EPfXeyuiUfwj32pob_E63?usp=sharing" class="text-design-accent text-sm font-bold hover:underline inline-flex items-center">
+                            Ver Galería <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                 <div class="group bg-slate-950 rounded-xl overflow-hidden border border-slate-800 hover:border-design-accent/50 transition-all hover:shadow-[0_0_30px_rgba(52,211,153,0.15)] flex flex-col">
+                    <div class="relative w-full aspect-[4/3] bg-slate-800 flex items-center justify-center border-b border-slate-800">
+                         <img src="UiSystems.jpg" alt="Diseño Web" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h4 class="text-xl font-bold text-white mb-2">Sistemas de Diseño</h4>
+                        <p class="text-sm text-slate-400 mb-6 flex-grow">Creación de componentes UI reutilizables, guías de estilo, paletas de color y tipografía para mantener consistencia en proyectos grandes.</p>
+                        <a href="https://www.figma.com/design/S758vUlHgcxvwWk8tutO9W/Freshcar?node-id=0-1&t=dIcu9gX3mIe11RYp-1" class="text-design-accent text-sm font-bold hover:underline inline-flex items-center">
+                            Ver Detalles <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <section id="edu-side" class="py-24 bg-indigo-950 border-t border-indigo-900 relative overflow-hidden">
-        <!-- Decoration -->
         <div class="absolute top-0 right-0 w-64 h-64 bg-edu-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
 
         <div class="container mx-auto px-6 mb-10">
@@ -226,11 +263,9 @@
             </div>
         </div>
 
-        <!-- Horizontal Scroll Container -->
         <div class="w-full overflow-x-auto horizontal-scroll pb-12 px-6">
             <div class="flex space-x-6 w-max mx-auto md:mx-0 md:pl-[max(1.5rem,calc((100vw-1280px)/2))]">
                 
-                <!-- Methodology Card -->
                 <div class="w-80 md:w-96 bg-indigo-900/50 backdrop-blur rounded-2xl p-8 border border-indigo-700 flex flex-col justify-center shrink-0">
                     <i class="fas fa-shapes text-4xl text-edu-accent mb-6"></i>
                     <h4 class="text-2xl font-bold text-white mb-4">Metodología Construct 3</h4>
@@ -244,20 +279,15 @@
                     </ul>
                 </div>
 
-                <!-- Level 1 Card: With Photo Placeholder -->
                 <div class="w-80 md:w-96 bg-slate-900 rounded-2xl overflow-hidden shrink-0 shadow-xl border border-slate-700 group hover:border-edu-accent transition-all hover:-translate-y-2">
                     <div class="h-48 overflow-hidden relative">
-                         <!-- AQUÍ VA TU FOTO DANDO CLASE (PRIMARIA) -->
                         <img src="Curso1.jpg" alt="Clase de Primaria" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
                         <span class="absolute bottom-4 left-4 bg-edu-accent text-indigo-900 text-xs font-bold px-2 py-1 rounded shadow-lg">PRIMARIA</span>
                     </div>
-                    
                     <div class="p-6">
                         <h4 class="text-xl font-bold text-white mb-2">Mi Primer Mundo</h4>
-                        <p class="text-indigo-200 text-sm mb-6">
-                            Introducción lúdica donde los niños crean un personaje que salta y recolecta objetos.
-                        </p>
+                        <p class="text-indigo-200 text-sm mb-6">Introducción lúdica donde los niños crean un personaje que salta y recolecta objetos.</p>
                         <div class="bg-indigo-900/50 rounded-lg p-3 border border-indigo-800">
                             <h5 class="text-edu-accent text-xs font-bold uppercase mb-2">Habilidades</h5>
                             <div class="flex flex-wrap gap-2">
@@ -268,20 +298,15 @@
                     </div>
                 </div>
 
-                <!-- Level 2 Card: With Photo Placeholder -->
                 <div class="w-80 md:w-96 bg-slate-900 rounded-2xl overflow-hidden shrink-0 shadow-xl border border-slate-700 group hover:border-edu-accent transition-all hover:-translate-y-2">
                     <div class="h-48 overflow-hidden relative">
-                        <!-- AQUÍ VA TU FOTO DANDO CLASE (SECUNDARIA) -->
                         <img src="Curso2.jpg" alt="Clase de Secundaria" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
                         <span class="absolute bottom-4 left-4 bg-violet-500 text-white text-xs font-bold px-2 py-1 rounded shadow-lg">SECUNDARIA</span>
                     </div>
-
                     <div class="p-6">
                         <h4 class="text-xl font-bold text-white mb-2">Aventura Digital</h4>
-                        <p class="text-indigo-200 text-sm mb-6">
-                            Diseño de mecánicas, enemigos con patrullaje simple y condiciones de victoria/derrota.
-                        </p>
+                        <p class="text-indigo-200 text-sm mb-6">Diseño de mecánicas, enemigos con patrullaje simple y condiciones de victoria/derrota.</p>
                         <div class="bg-indigo-900/50 rounded-lg p-3 border border-indigo-800">
                             <h5 class="text-edu-accent text-xs font-bold uppercase mb-2">Habilidades</h5>
                             <div class="flex flex-wrap gap-2">
@@ -292,20 +317,15 @@
                     </div>
                 </div>
 
-                <!-- Level 3 Card: With Photo Placeholder -->
                 <div class="w-80 md:w-96 bg-slate-900 rounded-2xl overflow-hidden shrink-0 shadow-xl border border-slate-700 group hover:border-edu-accent transition-all hover:-translate-y-2">
                     <div class="h-48 overflow-hidden relative">
-                         <!-- AQUÍ VA TU FOTO DANDO CLASE (PREPA) -->
                         <img src="Curso3.jpg" alt="Clase de Preparatoria" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
                         <span class="absolute bottom-4 left-4 bg-fuchsia-600 text-white text-xs font-bold px-2 py-1 rounded shadow-lg">PREPARATORIA</span>
                     </div>
-
                     <div class="p-6">
                         <h4 class="text-xl font-bold text-white mb-2">Intro al Desarrollo</h4>
-                        <p class="text-indigo-200 text-sm mb-6">
-                            Ciclo completo: GDD (Game Design Document), sistemas de vidas, UI y depuración (Debugging).
-                        </p>
+                        <p class="text-indigo-200 text-sm mb-6">Ciclo completo: GDD (Game Design Document), sistemas de vidas, UI y depuración (Debugging).</p>
                         <div class="bg-indigo-900/50 rounded-lg p-3 border border-indigo-800">
                             <h5 class="text-edu-accent text-xs font-bold uppercase mb-2">Habilidades</h5>
                             <div class="flex flex-wrap gap-2">
@@ -316,7 +336,6 @@
                     </div>
                 </div>
 
-                <!-- Call to Action Card -->
                 <div class="w-80 md:w-96 bg-slate-900 rounded-2xl p-8 border-2 border-dashed border-slate-700 flex flex-col items-center justify-center text-center shrink-0 hover:border-edu-accent transition-colors">
                     <i class="fas fa-calendar-check text-4xl text-slate-500 mb-4"></i>
                     <h4 class="text-xl font-bold text-white mb-2">¿Interesado en un curso?</h4>
@@ -330,7 +349,6 @@
         </div>
     </section>
 
-    <!-- UNIFIED PROFILE -->
     <section class="py-20 bg-slate-900 border-t border-slate-800">
         <div class="container mx-auto px-6 max-w-4xl text-center">
             <h2 class="text-3xl font-display font-bold text-white mb-8">La Sinergia</h2>
@@ -360,7 +378,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer id="contacto" class="bg-slate-950 py-12 border-t border-slate-900">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-2xl font-display font-bold text-white mb-6">¿Listo para colaborar?</h2>

@@ -21,15 +21,20 @@ document.addEventListener("DOMContentLoaded", () => {
   
     navLinks.forEach((link) => {
       link.addEventListener("click", function (e) {
-        e.preventDefault()
-  
-        const targetId = this.getAttribute("href")
-        const targetSection = document.querySelector(targetId)
-  
-        window.scrollTo({
-          top: targetSection.offsetTop,
-          behavior: "smooth",
-        })
+        // Verificar si el enlace apunta a un ancla dentro de la misma página (ej: #dev-side)
+        if (this.getAttribute("href").startsWith("#")) {
+            e.preventDefault()
+    
+            const targetId = this.getAttribute("href")
+            const targetSection = document.querySelector(targetId)
+    
+            if (targetSection) {
+                window.scrollTo({
+                top: targetSection.offsetTop,
+                behavior: "smooth",
+                })
+            }
+        }
       })
     })
   
@@ -161,4 +166,3 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     })
   }
-  
