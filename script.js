@@ -41,10 +41,26 @@ document.addEventListener("DOMContentLoaded", () => {
     // Funcionalidad para videos
     setupVideoPlayers()
     setupVideoModals()
-  })
+
+    // --- NUEVO: FUNCIONALIDAD PARA CERRAR EL REPRODUCTOR MODAL ---
+    const btnCerrarJuego = document.getElementById('close-game-modal');
+    if(btnCerrarJuego) {
+        btnCerrarJuego.addEventListener('click', cerrarJuegoModal);
+    }
+
+    // Permitir cerrar el modal de juego si se hace clic fuera del marco principal
+    const gameModalPlayer = document.getElementById('game-modal-player');
+    if(gameModalPlayer) {
+        gameModalPlayer.addEventListener('click', (e) => {
+            if(e.target === gameModalPlayer) {
+                cerrarJuegoModal();
+            }
+        });
+    }
+})
   
-  // Configurar reproductores de video
-  function setupVideoPlayers() {
+// Configurar reproductores de video
+function setupVideoPlayers() {
     const videoOverlays = document.querySelectorAll(".video-overlay")
   
     videoOverlays.forEach((overlay) => {
@@ -102,10 +118,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       })
     })
-  }
+}
   
-  // Configurar modales de video
-  function setupVideoModals() {
+// Configurar modales de video
+function setupVideoModals() {
     const openModalButtons = document.querySelectorAll(".open-video-modal")
     const closeModalButtons = document.querySelectorAll(".close-modal")
     const videoModals = document.querySelectorAll(".video-modal")
@@ -165,4 +181,52 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       })
     })
-  }
+}
+
+// --- NUEVAS FUNCIONES GLOBALES PARA CONSTRUCT 3 ---
+
+// Función para abrir el juego de Construct 3 en el Modal
+function abrirJuegoModal(gameUrl, gameTitle) {
+    const modal = document.getElementById('game-modal-player');
+    const iframe = document.getElementById('modal-game-frame');
+    const title = document.getElementById('game-modal-title');
+
+    // Prevenir errores si los elementos no existen
+    if(!modal || !iframe || !title) return;
+
+    // Asignar título y ruta del juego para que Construct 3 comience a cargar
+    title.textContent = gameTitle;
+    iframe.src = gameUrl;
+    
+    // Mostrar el modal intercambiando clases de Tailwind
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    
+    // Evitar que el scroll del fondo (body) siga funcionando mientras se juega
+    document.body.style.overflow = 'hidden';
+    
+    // Dar foco al iframe para que Construct 3 capture teclado/ratón inmediatamente
+    setTimeout(() => {
+        iframe.focus();
+    }, 300);
+}
+
+// Función para cerrar el Modal y matar la instancia del juego
+function cerrarJuegoModal() {
+    const modal = document.getElementById('game-modal-player');
+    const iframe = document.getElementById('modal-game-frame');
+    
+    if(!modal || !iframe) return;
+
+    // Ocultar modal
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    
+    // Restaurar el scroll de la página principal
+    document.body.style.overflow = 'auto';
+
+    // CRÍTICO: Limpiar el src para destruir la instancia del juego.
+    // Si no hacemos esto, el motor de Construct 3 seguirá ejecutándose de fondo,
+    // gastando RAM, reproduciendo audio o leyendo controles por error.
+    iframe.src = ''; 
+}

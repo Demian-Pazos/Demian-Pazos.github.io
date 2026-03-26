@@ -33,6 +33,9 @@
                         design: {
                             base: '#064e3b', // Emerald 900
                             accent: '#34d399', // Emerald 400
+                        },
+                        games: {
+                            accent: '#e879f9', // Fuchsia 400 (inferido de tu CSS)
                         }
                     }
                 }
@@ -90,6 +93,7 @@
             <div class="hidden md:flex space-x-8 text-sm font-medium">
                 <a href="#split-hero" class="hover:text-white transition-colors">Inicio</a>
                 <a href="#dev-side" class="hover:text-dev-accent transition-colors"><i class="fas fa-code mr-2"></i>Desarrollo</a>
+                <a href="#games-side" class="hover:text-games-accent transition-colors"><i class="fas fa-gamepad mr-2"></i>Juegos</a>
                 <a href="#design-side" class="hover:text-design-accent transition-colors"><i class="fas fa-pen-nib mr-2"></i>UI/UX</a>
                 <a href="#edu-side" class="hover:text-edu-accent transition-colors"><i class="fas fa-chalkboard-user mr-2"></i>Docencia</a>
                 <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
@@ -185,6 +189,80 @@
                         <div class="bg-slate-950 p-3 rounded border border-slate-800 mb-4">
                             <p class="text-xs text-dev-accent font-mono"><span class="text-slate-500">></span> Solución Técnica:</p>
                             <p class="text-xs text-slate-300 mt-1">Coordinación de equipos multidisciplinarios (10+ personas) usando metodologías ágiles y CI/CD.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="games-side" class="py-24 bg-slate-900 relative">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center mb-12">
+                <div class="h-px flex-1 bg-slate-800"></div>
+                <h3 class="px-4 text-2xl font-display font-bold text-games-accent">Librería de Juegos</h3>
+                <div class="h-px flex-1 bg-slate-800"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <div class="group bg-slate-950 rounded-xl overflow-hidden border border-slate-800 hover:border-games-accent/50 transition-all hover:shadow-[0_0_30px_rgba(232,121,249,0.15)] flex flex-col">
+                    
+                    <div class="relative w-full aspect-video bg-slate-800 overflow-hidden group cursor-pointer" onclick="abrirJuegoModal('Juegos/AxiFight/index.html', 'AxiFight (Web Build)')">
+                        <div class="absolute top-2 right-2 bg-black/70 backdrop-blur text-xs font-bold px-2 py-1 rounded text-white z-30 pointer-events-none">Jugable Web</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
+                        
+                        <div class="absolute inset-0 flex flex-col items-center justify-center z-20 transition-transform duration-300 group-hover:scale-105">
+                            <div class="w-16 h-16 bg-games-accent rounded-full flex items-center justify-center mb-4 shadow-[0_0_20px_rgba(232,121,249,0.4)]">
+                                <i class="fas fa-play text-2xl text-slate-900 ml-1"></i>
+                            </div>
+                            <span class="bg-slate-900/80 backdrop-blur text-white font-bold py-2 px-6 rounded-full text-sm border border-slate-700 group-hover:border-games-accent transition-colors">
+                                Abrir Reproductor
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold text-white">AxiFight (Web Build)</h4>
+                            <i class="fas fa-gamepad text-games-accent"></i>
+                        </div>
+                        <p class="text-sm text-slate-400 mb-6 flex-grow">Prueba directa del motor de físicas y el sistema de combate desarrollado en Construct 3. Usa las flechas para moverte y la barra espaciadora para atacar.</p>
+                        
+                        <div class="flex gap-2">
+                            <span class="text-xs text-games-accent bg-games-accent/10 px-2 py-1 rounded border border-games-accent/20">Construct 3</span>
+                            <span class="text-xs text-games-accent bg-games-accent/10 px-2 py-1 rounded border border-games-accent/20">State Machines</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group bg-slate-950 rounded-xl overflow-hidden border border-slate-800 hover:border-games-accent/50 transition-all hover:shadow-[0_0_30px_rgba(232,121,249,0.15)] flex flex-col">
+                    
+                    <div class="relative w-full aspect-video bg-slate-800 overflow-hidden group cursor-pointer" onclick="abrirJuegoModal('JuegoActualizado/index.html', 'AxiFight (Actualizado)')">
+                        <div class="absolute top-2 right-2 bg-black/70 backdrop-blur text-xs font-bold px-2 py-1 rounded text-white z-30 pointer-events-none">Jugable Web</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
+                        
+                        <div class="absolute inset-0 flex flex-col items-center justify-center z-20 transition-transform duration-300 group-hover:scale-105">
+                            <div class="w-16 h-16 bg-games-accent rounded-full flex items-center justify-center mb-4 shadow-[0_0_20px_rgba(232,121,249,0.4)]">
+                                <i class="fas fa-play text-2xl text-slate-900 ml-1"></i>
+                            </div>
+                            <span class="bg-slate-900/80 backdrop-blur text-white font-bold py-2 px-6 rounded-full text-sm border border-slate-700 group-hover:border-games-accent transition-colors">
+                                Abrir Reproductor
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold text-white">AxiFight (Actualizado)</h4>
+                            <i class="fas fa-gamepad text-games-accent"></i>
+                        </div>
+                        <p class="text-sm text-slate-400 mb-6 flex-grow">Prueba directa del motor de físicas y el sistema de combate desarrollado en Construct 3. Versión con mecánicas actualizadas.</p>
+                        
+                        <div class="flex gap-2">
+                            <span class="text-xs text-games-accent bg-games-accent/10 px-2 py-1 rounded border border-games-accent/20">Construct 3</span>
+                            <span class="text-xs text-games-accent bg-games-accent/10 px-2 py-1 rounded border border-games-accent/20">State Machines</span>
                         </div>
                     </div>
                 </div>
@@ -406,5 +484,21 @@
         </div>
     </footer>
 
+    <div id="game-modal-player" class="fixed inset-0 bg-slate-950/95 z-[100] hidden flex-col items-center justify-center p-4 md:p-10 backdrop-blur-md transition-opacity">
+        <div class="relative w-full max-w-6xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl border border-slate-700 flex flex-col">
+            
+            <div class="w-full bg-slate-900 flex justify-between items-center px-6 py-3 border-b border-slate-800">
+                <span id="game-modal-title" class="text-games-accent font-display font-bold text-lg">Cargando juego...</span>
+                <button id="close-game-modal" class="text-slate-400 hover:text-red-400 transition-colors flex items-center gap-2">
+                    <span class="text-sm font-bold uppercase tracking-wider">Cerrar</span>
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <iframe id="modal-game-frame" class="w-full h-full border-0 focus:outline-none" allow="autoplay; fullscreen" allowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
